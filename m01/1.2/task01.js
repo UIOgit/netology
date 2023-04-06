@@ -48,5 +48,3 @@ case 'add':
     break;
 default: console.log("Неверно указана команда");
 }
-
-console.log(dateNow.getMonth()-argv.mounth)
