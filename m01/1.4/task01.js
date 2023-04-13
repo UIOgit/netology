@@ -17,9 +17,9 @@ const argv = yargs(hideBin(process.argv))
         })   
     .argv;
 
-    //TODO: сделать параметр обязательным?
+    //TODO: сделать параметр обязательным? или добавить проверку и дефолтное имя файла
 
-const fileWriter = fs.createWriteStream(path.dirname()+argv.fileName);
+const fileWriter = fs.createWriteStream(path.join(__dirname, argv.fileName));
 
 let secretNumber = Math.floor(Math.random()*2)+1;
 let result = ""
