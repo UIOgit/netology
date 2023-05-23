@@ -1,10 +1,17 @@
 const donenv = require('dotenv');
 const http = require ('http');
-const city = 'London';
+const yargs = require('yargs/yargs');
+const { hideBin } = require('yargs/helpers');
 
-const testURL = 'http://api.weatherstack.com/current?access_key=f55715e7ff17f32de5b922fa44fb05f9&query=London';
+const argv = yargs(hideBin(process.argv))
+    .option('city',{
+        alias: "c",
+        type: "string",
+        description: "Название города"
+    }).default('city', 'Cherepovets').argv;
+console.log(argv);
 
-http.get(process.env.apiURL + '?access_key=' + process.env.apiKey + '&query='+ city, (result)=>{
+http.get(process.env.apiURL + '?access_key=' + process.env.apiKey + '&query='+ argv.city, (result)=>{
     const {statusCode} = result;
         if (statusCode !== 200){
             console.log(`statusCode: ${statusCode}`)
