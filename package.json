@@ -10,6 +10,6 @@
   },
   "scripts":{
     "start": "node task01.js",
-    "dev": "node dotenv/config task01.js"
+    "dev": "node -r dotenv/config task01.js"
   }
 }
